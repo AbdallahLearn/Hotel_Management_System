@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form action="../client_side/Mohammad/main.html" method="post">
+        <form  method="post" id="user-form">
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input  type="text" id="fisrt_name" required placeholder="First Name">
@@ -33,17 +33,18 @@
                 <input type="password" id="password" required placeholder="Password">
             </div>
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" required placeholder="Confirm Password">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" required placeholder="Confirm Password">
             </div>
             <div class="member">
-                <p>Already a memeber? <a href="../Abdalaziz/login.html">Login</a></p>
+                <p>Already a memeber? <a href="../../Abdalaziz/login.html">Login</a></p>
             </div>
             
-            <button type="submit">Sign Up</button>
+            <button type="submit" id="submit" class="create-user">Sign Up</button>
         
         </form>
     </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
