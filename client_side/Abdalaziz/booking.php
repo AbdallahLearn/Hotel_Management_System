@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AAAM";
+$dbname = "aaam";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $numChildren = $_POST['num_children'];
 
     // Insert data into the database
-    $sql = "INSERT INTO reservations (city, arrival_date, departure_date, num_adults, num_children) 
+    $sql = "INSERT INTO booking (city, arrival_date, departure_date, num_adults, num_children) 
             VALUES ('$city', '$arrivalDate', '$departureDate', '$numAdults', '$numChildren')";
 
     if ($conn->query($sql) === TRUE) {

@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AAAM";
+$dbname = "aaam";
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errorMessage = "Email and password are required!";
     } else {
         // Prepare and execute a query to fetch the user's details
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $sql = "SELECT * FROM  WHERE email = '$email' AND password = '$password'";
         $result = $conn->query($sql);
 
         if ($result->num_rows == 1) {
