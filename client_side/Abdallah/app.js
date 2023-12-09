@@ -4,26 +4,31 @@ const app = express();
 const path = require('path');
 
 
-console.log(path.join(__dirname ,'..' ,"images/hotelBackground.jpeg"))
 
 
 const PORT = 3000;
 //Static Files
-app.use(express.static(path.join(__dirname , "public")));
-app.use(express.json());
-app.use(express.static('../images'))
+app.use(express.static(path.join(__dirname , "views")));
+app.use(express.static(path.join(__dirname ,'..', "images")));
+app.use(express.static(path.join(__dirname , '..',"Abdalaziz")));
+app.use(express.static(path.join(__dirname , '..',"Mohammad")));
 
+app.use(express.urlencoded({ extended: false}));
+app.use(express.json());
+
+app.set('view engine', 'hbs');
 
 
 app.listen(PORT, () => {
     console.log("app is running on " + PORT);
 })
 
+app.use('/' , require(path.join(__dirname, '.', '/router/pages')))
+app.use('/login' , require(path.join(__dirname, '.', '/router/pages')))
+app.use('/hotels' , require(path.join(__dirname, '.', '/router/pages')))
+app.use('/city',  require(path.join(__dirname, '.', '/router/pages')))
+app.use('/', require(path.join(__dirname ,'.' , '/router/auth')))
 
-app.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname  ,"public/signup.html"))
-    // res.sendFile(path.join(__dirname ,'..' ,"images"))
-})
 
 
 const connection = mysql.createConnection({
@@ -34,6 +39,8 @@ const connection = mysql.createConnection({
     database: "aaam"
 })
 
+
+
 app.post('/create', (req, res) => {
     const {
         first_name,
@@ -43,9 +50,9 @@ app.post('/create', (req, res) => {
         confirm_password
     } = req.body;
 
-    if(!first_name && !last_name && !email && !password && !confirm_password){
-        return res.sendStatus(400);
-    }
+    // if(!first_name && !last_name && !email && !password && !confirm_password){
+    //     return res.sendStatus(400);
+    // }
 
     // Insert the signup data into the database
     const sql = 'INSERT INTO customer (first_name, last_name, email, password, confirm_password) VALUES (?)';
@@ -82,4 +89,4 @@ connection.connect((err) => {
 
 })
 
-console.log(path.join(__dirname , "public"))
+console.log(path.join(__dirname  ,'.',"views/signup"))
