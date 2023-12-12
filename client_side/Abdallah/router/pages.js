@@ -3,6 +3,9 @@ const router = express.Router();
 const path = require('path');
 const mysql = require('mysql')
 
+const app = express();
+app.set('view engine', 'hbs');
+
 const connection = mysql.createConnection({
     host: "localhost",
     user: "abood",
@@ -20,12 +23,29 @@ router.get('/city', (req,res)=>{
 })
 
 router.get('/hotel_makkah', (req,res)=>{
+    //here bring hotel info from database to display it on browser
     connection.query("SELECT * FROM hotel",(err, result)=>{
         if(err) throw err;
-        const {hotel_id , hotel_name, hotel_address, rate} = result
-        res.render(path.join(__dirname  ,'..',"views/hotel_makkah"),{hotel_name} )
-        
+        let hotel_info = {
+            hotel_name:result[0].hotel_name,
+            hotel_address: result[0].hotel_address,
+            hotel_rate:result[0].rate
+        }
+        res.render(path.join(__dirname  ,'..',"views/hotel_makkah"),{hotel_info})
+        console.log(hotel_info)
     })
+    //here bring room info to display it on browser
+    connection.query("SELECT * FROM room",(err, result)=>{
+        if(err) throw err;
+        let room_info = {
+            category:result[0].category,
+            room_price: result[0].price
+        }
+        res.render(path.join(__dirname  ,'..',"views/hotel_makkah"),{room_info})
+        console.log(room_info)
+    })
+
+
 })
 
 router.get('/hotel_med', (req,res)=>{

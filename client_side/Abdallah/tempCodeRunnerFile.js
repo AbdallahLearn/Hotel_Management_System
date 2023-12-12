@@ -1,1 +1,2 @@
-app.use(express.static(path.join(__dirname , "views")));
+const mysql = require("mysql");
+const app = express();

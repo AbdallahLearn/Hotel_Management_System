@@ -34,9 +34,15 @@ exports.signup = (req,res) =>{
             })
         }else if(password !== confirm_password){
             return res.render(path.join(__dirname, '..', 'views/signup') , {
-                message: 'password do not match'
+                message: 'password do not match or password less then 8 character'
+            });
+        }else if(password.length && confirm_password >=8){
+            return res.render(path.join(__dirname, '..', 'views/signup') , {
+                message: 'password must be more than 7 character'
             });
         }
+            
+        
         let hashehPassword = await bcrypt.hash(password, 8);
         console.log(hashehPassword)
         
@@ -44,7 +50,7 @@ exports.signup = (req,res) =>{
             if(err){
                 console.log(err);
             } else{
-                return res.render(path.join(__dirname, '..', 'views/signup') , {
+                return res.sendFile(path.join(__dirname, '../..', 'Mohammad/main.html') , {
                     message: 'user signup successfully!'
                 });
             }
