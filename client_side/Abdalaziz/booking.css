@@ -1,5 +1,9 @@
+
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('/client_side/images/sindalah-hero-thumb-fnl.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
     margin: 0;
     padding: 0;
     background-color: #D7F0F4;
@@ -7,7 +11,7 @@ body {
 
 header {
     background-color: #74BBE9;
-    color:  #D7F0F4;
+    color: #D7F0F4;
     padding: 10px;
     text-align: center;
 }
@@ -30,34 +34,53 @@ nav a {
 }
 
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #236b8e;
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #D7F0F4;
     padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-form {
+.booking-form {
     display: grid;
     gap: 15px;
 }
 
-input {
-    padding: 10px;
+label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
 }
 
-/* Responsive Styles */
+select,
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #236b8e;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     .container {
         max-width: 100%;
         padding: 10px;
     }
-    
-    form {
+
+    .booking-form {
         grid-template-columns: 1fr;
     }
-    
+
+    select,
     input {
         width: calc(100% - 20px);
     }
