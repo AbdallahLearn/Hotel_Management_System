@@ -1,10 +1,8 @@
 <?php
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AAAM";
+$dbname = "aaam";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -16,27 +14,24 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
     $city = $_POST['city'];
-    $arrivalDate = $_POST['arrival_date'];
-    $departureDate = $_POST['departure_date'];
-    $numAdults = $_POST['num_adults'];
-    $numChildren = $_POST['num_children'];
+    $check_in = $_POST['cheick_in'];
+    $check_out = $_POST['cheick_out'];
+    $num_adults = $_POST['num_adults'];
+    $num_children = $_POST['num_children'];
 
     // Insert data into the database
-    $sql = "INSERT INTO reservations (city, arrival_date, departure_date, num_adults, num_children) 
-            VALUES ('$city', '$arrivalDate', '$departureDate', '$numAdults', '$numChildren')";
+    $sql = "INSERT INTO bookings (city, check_in, check_out, num_adults, num_children) 
+            VALUES ('$city', '$check_in', '$check_out', '$num_adults', '$num_children')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Reservation successfully submitted!";
+        // Redirect to the payment page
+        header("Location: ../Ali/payment.php");
+        exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-} else {
-    // If the form is not submitted, redirect to the form page
-    header("Location: your_booking_form_page.html");
-    exit();
 }
 
 // Close the database connection
 $conn->close();
 ?>
-

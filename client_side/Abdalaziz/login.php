@@ -3,14 +3,14 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "AAAM";
+$dbname = "aaam";
 
 // Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Check if form is submitted
@@ -18,26 +18,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Validate email and password (you can add more validation as needed)
-    if (empty($email) || empty($password)) {
-        $errorMessage = "Email and password are required!";
-    } else {
-        // Prepare and execute a query to fetch the user's details
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-        $result = $conn->query($sql);
+    // Prepare and execute a query to fetch the customer's details
+    $sql = "SELECT * FROM customers 
+            WHERE email = '$email' AND password = '$password';";
+    $result = mysqli_query($conn, $sql);
 
-        if ($result->num_rows == 1) {
-            // User's credentials are correct, proceed to the dashboard or authorized area
-            // Redirect to the dashboard or authorized area
-            header("Location: service.php");
-            exit();
-        } else {
-            // Invalid credentials
-            $errorMessage = "<p style='color:red'>" .  "Invalid email or password!";
-        }
+    if (mysqli_num_rows($result) == 1) {
+        // Customer's credentials are correct, proceed to the dashboard or authorized area
+        // Redirect to the dashboard or authorized area
+       
+        header("Location: ../Mohammad/main.html");
+        exit();
+    } else {
+        // Invalid credentials
+        echo "<p style='color:red'>" . "Invalid email or password!" . "</p>";
     }
 }
 
 // Close the database connection
-$conn->close();
+mysqli_close($conn);
 ?>
