@@ -2,22 +2,121 @@
 <html lang="en">
 
 <head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدن العالم</title>
+    <title>AAAM Home</title>
     <style>
+        /*header*/
+
+        *{
+    margin: 0px;
+    padding:0px;
+}
+
+
+.nav{
+    padding-top: 50px;
+    padding-left: 120px;
+} 
+
+.nav a {
+    padding-right: 20px;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+    overflow: hidden;
+    background-color: #d7f0f4;
+    padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a .logo {
+    width:100px;
+    height:100px;
+    padding:0;   
+}
+/* Change the background color on mouse-over */
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+/* Float the link section to the right */
+.header-right a{
+    margin-left:50px;
+    
+}
+
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #d7f0f4;
+            /* background-color: #d7f0f4; */
 
         }
 
-        header {
-            background-color: #74bbe8;
-            color: #fff;
+        header{
+            /* background-color: #74bbe8; */
+            color: #000000;
             padding: 10px;
-
+            text-decoration: none;
+            padding:40px;
         }
     
 
@@ -56,6 +155,15 @@
             cursor: pointer;
             margin-top: 5px;
         }
+        .messageContainer{
+            margin:150px;
+        }
+        footer{
+            background-color:#236b8e;
+            color:white;
+            padding:50px;
+            margin-top: 200px;
+        }
     </style>
 </head>
 <div class="m">
@@ -63,10 +171,17 @@
 
 <body dir="ltr">
 
-    <header dir="ltr">
-        <a href="../../Mohammad/main.html">Home</a> > <a href="city.html">City</a>
-    </header>
-   
+    <div class="header">
+        <div class="header-right">
+            <a class="active" href="../../main.html">Home</a>
+            <a href="./contact.html">Contact</a>
+            <a href="./about.html">About</a>
+        </div>
+    </div>
+
+    <div class="nav">
+        <a href="../../Mohammad/main.html">home</a>
+    </div>
 
     <section>
 
@@ -77,10 +192,12 @@
 
         <div class="city">
             <img src="AL madinah.jpeg" alt="مدينة 2">
-            <a href="#" class="button">AL madinah</a>
+            <a href="../Abdallah/views/hotel_med.hbs" class="button">AL madinah</a>
         </div>
     </section>
-
+    <footer>
+        <p>The website created by <strong>Abdallah</strong>  ,  <strong>Abdalaziz</strong>   ,  <strong>Ali</strong>   ,   <strong>Mohammad</strong></p>
+    </footer>
 </body>
 
 </html>

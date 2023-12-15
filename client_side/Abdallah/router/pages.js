@@ -134,7 +134,7 @@ router.get("/hotel_med", (req, res) => {
                     room_info,
                     city_info
                 };
-                res.render(path.join(__dirname, "..", "views/hotel_makkah"), data);
+                res.render(path.join(__dirname, "..", "views/hotel_med"), data);
                 console.log(data);
             });
         });
