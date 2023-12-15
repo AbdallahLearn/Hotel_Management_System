@@ -1,0 +1,87 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f2f2f2;
+    background-image: url("../images/hotelBackground.jpeg");
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px 60px;
+    background-color: #ffffff98;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff98;
+    border: 0 solid #ffffff98;
+    border-bottom:1px solid black;
+    border-radius: 0px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #1F5EA8;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:10px 0;
+}
+.member{
+    text-align: center;
+}
+.member a{
+    text-decoration: none;
+    font-weight: bold;
+    color:blue;
+}
+
+@media all and (max-width:480px){
+    body{
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .container{
+        width:300px;
+        margin:100px auto;
+        padding:20px 40px;
+    }
+    
+}
+.result-input{
+    color:red;
+}
+
+@media all and (min-width:500px) and (max-width:850px){
+    body{
+        background-size:120%;
+    }
+    .container{
+        /* width:300px; */
+        margin:100px auto;
+        padding:20px 40px;
+    }
+    
+}
+

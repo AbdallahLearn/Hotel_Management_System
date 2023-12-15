@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Login In</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="container">
-        <h1>Sign In</h1>
-        <form method="POST" action="login.php">
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <input type="password" name="password" id="password" placeholder="Password" required>
+        <h1>login</h1>
+        <form id="signInForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
             <p class="error" id="error-message"></p>
-            <button type="submit">Sign In</button>
+            <button type="submit">login</button>
         
         
         <p class= "login_register">
-            Don't have an account? <a href="/client_side/Abdallah/public/signup.html">Register</a> <i class="fas fa-user-plus"></i>
+            Don't have an account? <a href="../../../signup">Sign Up</a> <i class="fas fa-user-plus"></i>
         </p>
     </form>
     </div>
+<!-- <script src="login.js"></script> -->
 </body>
 </html>
