@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const mysql = require("mysql");
-
+// const exphbs = require('express-handlebars')
 const app = express();
+
+// app.engine('hbs', exphbs);
 app.set("view engine", "hbs");
 
 const connection = mysql.createConnection({
@@ -23,11 +25,16 @@ router.get("/signup", (req, res) => {
     res.render(path.join(__dirname, "..", "views/signup"));
 });
 router.get("/home", (req, res) => {
-    res.sendFile(path.join(__dirname, "../..", "Mohammad/main.html"));
+    res.sendFile(path.join(__dirname, "../..", "Mohammad/city.html"));
 });
 router.get("/booking", (req, res) => {
     res.sendFile(path.join(__dirname, "../..", "Abdalaziz/booking.html"));
 });
+router.get("/payment", (req, res) => {
+    res.sendFile(path.join(__dirname, "../..", "Ali/payment.php"));
+});
+
+
 
 router.get("/hotel_makkah", (req, res) => {
     let hotel_info = {};
