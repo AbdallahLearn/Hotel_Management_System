@@ -4,12 +4,28 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #D7F0F4;
 }
-header{
-    padding-top:50px;
-    padding-left:120px;
+header {
+    background-color: #74BBE9;
+    color: #D7F0F4;
+    padding: 10px;
+    text-align: center;
 }
-header a{
-    padding: 30px;
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1F5EA8;
+    font-weight: bold;
 }
 
 .container{

@@ -12,6 +12,9 @@
 
     // Check if the form is submitted
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $booking_id = random_int(10000, 99999);
+
         // Retrieve form data
         $city = $_POST['city'];
         $check_in = $_POST['cheick_in'];
@@ -20,12 +23,12 @@
         $num_children = $_POST['num_children'];
 
         // Insert data into the database
-        $sql = "INSERT INTO bookings (city, check_in, check_out, num_adults, num_children) 
-            VALUES ('$city', '$check_in', '$check_out', '$num_adults', '$num_children')";
+        $sql = "INSERT INTO booking (booking_id, arrival_date, departure_date, num_adults, num_children) 
+            VALUES ('$booking_id', '$check_in', '$check_out', '$num_adults', '$num_children')";
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the payment page
-            header("Location: ../Ali/payment.php");
+            header("Location: ../Ali/bill.php?booking_id=" . $booking_id);
             exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;

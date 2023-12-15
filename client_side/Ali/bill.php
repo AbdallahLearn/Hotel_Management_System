@@ -1,19 +1,16 @@
 <?php
 //database connection and select 
 
-$conn = mysqli_connect('127.0.0.1', 'root' , 'root' , 'aaam');
+include './conn.php';
 
-if(!$conn){
-    echo 'Error: ' . mysqli_connect_error();
-}
 
-$booking_id =1;
+$booking_id = isset($_GET['booking_id']) ? $_GET['booking_id'] : null;
+
 $sql_s = 'SELECT `city`.`city_name`, `hotel`.`hotel_name`, `room`.`category`, `room`.`price`, `booking`.`arrival_date`, `booking`.`departure_date`
-FROM `city`
-	, `hotel`
-	, `room`
-	, `booking`
-    WHERE booking_id = ' . $booking_id;
+FROM `city` 
+	LEFT JOIN `hotel` ON `hotel`.`city_id` = `city`.`city_id` 
+	LEFT JOIN `room` ON `room`.`hotel_id` = `hotel`.`hotel_id`
+	, `booking` WHERE booking_id = ' . $booking_id;
 
 
 $result = mysqli_query($conn, $sql_s);
@@ -31,7 +28,7 @@ $price = htmlspecialchars($ifo['price']);
 $tax = $price * 0.15;
 $total = $price + $tax;
 $booking_date = "10/12/2023";
-    
+
 ?>
 
 
@@ -46,7 +43,15 @@ $booking_date = "10/12/2023";
 </head>
 <body>
     <header>
-        <a href="../Mohammad/main.html">Home</a> > <a href="../Mohammad/main.html">City</a> > <a href="#">Rooms</a>
+        <h1>AAAM Hotel</h1>
+            <nav>
+                <ul>
+                    <li><a href="../Mohammad/main.html">Home</a></li>
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="../Mohammad/main.html">City</a></li>
+                
+                </ul>
+            </nav>
     </header>
     <div class="container">
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light shadow-lg" id="box">
@@ -81,8 +86,8 @@ $booking_date = "10/12/2023";
                 </div>
 
                 <br>
-
-                <button type="submit" name="submit" class="btn btn-primary">Complete payment</button>
+                
+                <button type="submit" name="submit" class="btn btn-primary"><a href="./payment.php?booking_id=<?php echo $booking_id; ?>">Complete payment</a></button>
             </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
