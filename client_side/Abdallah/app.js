@@ -2,12 +2,29 @@ const express = require("express");
 const mysql = require("mysql");
 const app = express();
 const path = require('path');
+// const sphp = require('sphp');
 
+//excute php file
+// const { exec } = require('child_process');
 
 
 
 const PORT = 3000;
+
+//excute php file
+// const phpFile = path.join(__dirname, '..' , 'abdalaziz/login.php')
+// exec(`php ${phpFile}`, (err, stdout, stderr)=>{
+//     if(err){
+//         console.log(err);
+//         return
+//         }
+//     console.log(`php script output: ${stdout}`)
+//     console.log(`php script errors: ${stderr}`)
+// })
+// app.use(sphp.express(path.join(__dirname , '..',"Ali")))
 //Static Files
+
+
 app.use(express.static(path.join(__dirname , "views")));
 app.use(express.static(path.join(__dirname ,'..', "images")));
 app.use(express.static(path.join(__dirname , '..',"Abdalaziz")));
@@ -26,8 +43,10 @@ app.listen(PORT, () => {
 app.use('/' , require(path.join(__dirname, '.', '/router/pages')))
 app.use('/login' , require(path.join(__dirname, '.', '/router/pages')))
 app.use('/hotels' , require(path.join(__dirname, '.', '/router/pages')))
-app.use('/city',  require(path.join(__dirname, '.', '/router/pages')))
+app.use('/home',  require(path.join(__dirname, '.', '/router/pages')))
 app.use('/', require(path.join(__dirname ,'.' , '/router/auth')))
+app.use('/about', require(path.join(__dirname ,'.' , '/router/pages')))
+app.use('/home', require(path.join(__dirname ,'.' , '/router/pages')))
 
 
 
