@@ -1,7 +1,7 @@
 
     body {
         font-family: 'Roboto', sans-serif;
-        background-image: url('../../../sindalah-hero-thumb-fnl.jpg'); 
+        background-image: url('/images/sindalah-hero-thumb-fnl.jpg'); 
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
