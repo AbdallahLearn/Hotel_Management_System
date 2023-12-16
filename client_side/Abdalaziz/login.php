@@ -5,35 +5,48 @@ $username = "root";
 $password = "";
 $dbname = "aaam";
 
-// Create a connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form is submitted
+// Function to securely hash passwords
+function verifyPassword($password, $hashedPassword) {
+    // Verify if the provided password matches the hashed password
+    return password_verify($password, $hashedPassword);
+}
+
+// Handle login form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // SQL query to retrieve the hashed password for the given email
+    $sql = "SELECT * FROM customer WHERE email = '$email'";
+    $result = $conn->query($sql);
 
-    // Prepare and execute a query to insert the user with hashed password
-    $sql = "INSERT INTO customers (email, password) VALUES ('$email', '$hashed_password')";
-    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        // User found, verify the password
+        $row = $result->fetch_assoc();
+        $hashedPassword = $row["password"];
 
-    if ($result) {
-        // User successfully registered, you can redirect or perform additional actions
-        header("Location: ../Mohammad/city.html");
+        if (verifyPassword($password, $hashedPassword)) {
+            // Password is correct, login successful
+            echo "Login successful!";
+        } else {
+            // Password is incorrect
+            echo "Login failed. Please check your email and password.";
+        }
     } else {
-        // Registration failed
-        echo "Error: " . mysqli_error($conn);
+        // User not found
+        echo "Login failed. Please check your email and password.";
     }
 }
 
 // Close the database connection
-mysqli_close($conn);
+$conn->close();
 ?>
