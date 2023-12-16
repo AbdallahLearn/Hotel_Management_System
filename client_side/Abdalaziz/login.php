@@ -1,8 +1,8 @@
 <?php
 // Database connection parameters
 $servername = "localhost";
-$username = "abood";
-$password = "AA1122ss";
+$username = "root";
+$password = "";
 $dbname = "aaam";
 
 // Create a connection
@@ -18,22 +18,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Prepare and execute a query to fetch the customer's details
-    $sql = "SELECT * FROM customers 
-            WHERE email = '$email' AND password = '$password';";
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Prepare and execute a query to insert the user with hashed password
+    $sql = "INSERT INTO customers (email, password) VALUES ('$email', '$hashed_password')";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 1) {
-        // Customer's credentials are correct, proceed to the dashboard or authorized area
-        // Redirect to the dashboard or authorized area
-       
-        header("Location: ../Mohammad/main.html");
-        exit();
+    if ($result) {
+        // User successfully registered, you can redirect or perform additional actions
+        header("Location: ../Mohammad/city.html");
     } else {
-        // Invalid credentials
-        echo "<p style='color:red'>" . "Invalid email or password!" . "</p>";
+        // Registration failed
+        echo "Error: " . mysqli_error($conn);
     }
 }
 
 // Close the database connection
 mysqli_close($conn);
+?>

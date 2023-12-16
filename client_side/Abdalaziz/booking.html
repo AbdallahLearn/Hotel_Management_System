@@ -9,35 +9,25 @@
 </head>
 
 <body>
-    <header>
-        <h1>AAAM Hotel</h1>
-        <form action="booking.php" method="post">
-            <nav>
-                <ul>
-                    <li><a href="../Mohammad/main.html">Home</a></li>
-                    <li><a href="#">Rooms</a></li>
-                    <li><a href="../Mohammad/main.html">City</a></li>
-                </ul>
-            </nav>
-    </header>
+    <div class="header">
+        <div class="header-right">
+            <a href="../Mohammad/city.html">Home</a>
+            <a href="../Abdallah/views/contact.html">Contact</a>
+            <a href="../Abdallah/views/about.html">About</a>
+            <a href="../Abdalaziz/login.html">Login</a>
+            <a href="../client_side/Abdallah/views/signup.hbs">Sign Up</a>
+        </div>
+    </div>
 
     <div class="container">
-        <form action="#" method="post">
+        <form action="#" method="post" class="booking-form">
             <div class="form-group">
-                <label for="city" required>City:</label>
-                <select name="city" id="city" required>
-                    <option value="">Select City</option>
-                    <option value="Al-Madinah">Al-Madinah al-Munawwarah</option>
-                    <option value="Makkah">Makkah</option>
-                </select>
+                <label for="check_out" required>Arrival Date:</label>
+                <input type="date" name="check_out" id="check_out" required>
             </div>
             <div class="form-group">
-                <label for="cheick_out" required>Arrival Date:</label>
-                <input type="date" name="cheick_out" id="cheick_out" required>
-            </div>
-            <div class="form-group">
-                <label for="cheick_in" required>Departure Date:</label>
-                <input type="date" name="cheick_in" id="cheick_in" required>
+                <label for="check_in" required>Departure Date:</label>
+                <input type="date" name="check_in" id="check_in" required>
             </div>
             <div class="form-group">
                 <label for="num_adults" required>Number of Adults:</label required>
@@ -48,15 +38,14 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label for="num_children" required>Number of Children:</label required>
                 <select name="num_children" id="num_children">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                
-                
                 </select>
             </div>
             <br>
@@ -66,6 +55,9 @@
         </form>
     </div>
 
+    <footer>
+        <p>The website created by <strong>Abdallah</strong> , <strong>Abdalaziz</strong> , <strong>Ali</strong> , <strong>Mohammad</strong></p>
+    </footer>
 </body>
 
 </html>
