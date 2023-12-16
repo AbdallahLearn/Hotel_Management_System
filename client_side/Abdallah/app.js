@@ -33,6 +33,7 @@ app.use('/', require(path.join(__dirname ,'.' , '/router/auth')))
 app.use('/about', require(path.join(__dirname ,'.' , '/router/pages')))
 app.use('/home', require(path.join(__dirname ,'.' , '/router/pages')))
 app.use('/booking', require(path.join(__dirname ,'.' , '/router/pages')))
+app.use('/bill', require(path.join(__dirname ,'.' , '/router/pages')))
 
 
 
