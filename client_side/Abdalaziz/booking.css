@@ -5,7 +5,7 @@ body {
     background-position: center center;
     margin: 0;
     padding: 0;
-    background-color: #D7F0F4;
+    background-color: #ffffff;
 }
 
 .header {
@@ -122,4 +122,14 @@ footer {
     .header-right {
         float: none;
     }
+}
+.nav{
+    padding-top: 50px;
+    padding-left: 120px;
+} 
+
+.nav a {
+    padding-right: 20px;
+    text-decoration: none;
+    color:orange;
 }

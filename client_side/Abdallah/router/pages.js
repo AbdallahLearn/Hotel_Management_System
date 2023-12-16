@@ -6,18 +6,17 @@ const mysql = require("mysql");
 const app = express();
 //start php
 const phpExpress = require('php-express')({
-    binPath: 'php'
+    binPath: 'php',
+    rootPath: '../app.js'
 });
 
-app.set('views',path.join(__dirname , '../../..',"client-side"));
+app.set('views',path.join(__dirname , '../../..',"Ali"));
 app.engine('php', phpExpress.engine);
 app.set('view engine', 'php');
 
 // Define a route for PHP files
 app.all(/.+\.php$/, phpExpress.router);
 //end php
-
-
 
 // app.engine('hbs', exphbs);
 app.set("view engine", "hbs");
@@ -81,6 +80,7 @@ router.get("/hotel_makkah", (req, res) => {
         connection.query("SELECT * FROM room", (err, roomResult) => {
             if (err) throw err;
             room_info = {
+                room_id:roomResult[0].room_id,
                 category: roomResult[0].category,
                 room_price: roomResult[0].price,
                 category1: roomResult[1].category,
@@ -100,7 +100,8 @@ router.get("/hotel_makkah", (req, res) => {
                     city_info
                 };
                 res.render(path.join(__dirname, "..", "views/hotel_makkah"), data);
-                console.log(data);
+                // res.redirect(`/booking?room_id=${data.room_info.room_id}`)
+                console.log(data.room_info);
             });
         });
     });
@@ -164,11 +165,17 @@ router.get("/hotel_med", (req, res) => {
 router.get("/login", (req, res) => {
     res.render("login");
 });
+
 router.get("/booking", (req, res) => {
-    res.sendFile(path.join(__dirname, "../..", "Abdalaziz/booking.html"));
+    const room_id =req.query.room_id
+    // res.redirect(`/booking?room_id=${data.room_info.room_id}`)
+    res.redirect('booking', {room_id});
 });
 router.get("/images", (req, res) => {
     res.sendFile(path.join(__dirname, "../..", "images"));
+});
+router.get("/bill", (req, res) => {
+    res.render(path.join(path.join(__dirname, "../..", "Ali/bill")));
 });
 
 module.exports = router;
