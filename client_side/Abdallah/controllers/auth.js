@@ -50,7 +50,7 @@ exports.signup = (req,res) =>{
             if(err){
                 console.log(err);
             } else{
-                return res.sendFile(path.join(__dirname, '../..', 'Mohammad/main.html') , {
+                return res.sendFile(path.join(__dirname, '../..', 'Mohammad/city.html') , {
                     message: 'user signup successfully!'
                 });
             }
