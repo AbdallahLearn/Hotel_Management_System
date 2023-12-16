@@ -27,7 +27,7 @@ app.listen(PORT, () => {
 
 app.use('/' , require(path.join(__dirname, '.', '/router/pages')))
 app.use('/login' , require(path.join(__dirname, '.', '/router/pages')))
-app.use('/hotels' , require(path.join(__dirname, '.', '/router/pages')))
+// app.use('/hotels' , require(path.join(__dirname, '.', '/router/pages')))
 app.use('/home',  require(path.join(__dirname, '.', '/router/pages')))
 app.use('/', require(path.join(__dirname ,'.' , '/router/auth')))
 app.use('/about', require(path.join(__dirname ,'.' , '/router/pages')))

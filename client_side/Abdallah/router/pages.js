@@ -171,11 +171,16 @@ router.get("/booking", (req, res) => {
     // res.redirect(`/booking?room_id=${data.room_info.room_id}`)
     res.redirect('booking', {room_id});
 });
+router.post("/booking", (req, res) => {
+    const room_id =req.query.room_id
+    // res.redirect(`/booking?room_id=${data.room_info.room_id}`)
+    res.sendFile('booking.php', {room_id});
+});
 router.get("/images", (req, res) => {
     res.sendFile(path.join(__dirname, "../..", "images"));
 });
 router.get("/bill", (req, res) => {
-    res.render(path.join(path.join(__dirname, "../..", "Ali/bill")));
+    res.render('bill');
 });
 
 module.exports = router;
