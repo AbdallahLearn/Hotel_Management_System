@@ -46,18 +46,18 @@ if (isset($_POST['submit'])){
 
   </head>
   <body>
-    <header>
-      <h1>AAAM Hotel</h1>
-        <nav>
-          <ul>
-            <li><a href="../Mohammad/main.html">Home</a></li>
-              <li><a href="#">Rooms</a></li>
-              <li><a href="../Mohammad/main.html">City</a></li>     
-          </ul>
-        </nav>
-    </header>
+    <div class="header">
+        <div class="header-right">
+            <a href="../../city.html">Home</a>
+            <a href="./contact.html">Contact</a>
+            <a href="./about.html">About</a>
+            <a href="../../login.html">Login</a>
+            <a href="../../signup">Sign Up</a>
+        </div>
+    </div>
 
     <div class="container">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light shadow-lg" id="box">
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -128,9 +128,11 @@ if (isset($_POST['submit'])){
           </div>
 
           <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit" >Continue to checkout</button>
+          <div class="form-group">
+              <button id="check_availability" type="submit">Continue to checkout</button>
+          </div>
         </form>
+      </div>
       </div>
     </div>
     </div>

@@ -3,8 +3,6 @@ const mysql = require("mysql");
 const app = express();
 const path = require('path');
 
-
-
 const PORT = 3000;
 
 
@@ -19,7 +17,7 @@ app.use(express.static(path.join(__dirname , '..',"Mohammad")));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
-
+app.set('view engine', 'php');
 app.set('view engine', 'hbs');
 
 
@@ -34,6 +32,7 @@ app.use('/home',  require(path.join(__dirname, '.', '/router/pages')))
 app.use('/', require(path.join(__dirname ,'.' , '/router/auth')))
 app.use('/about', require(path.join(__dirname ,'.' , '/router/pages')))
 app.use('/home', require(path.join(__dirname ,'.' , '/router/pages')))
+app.use('/booking', require(path.join(__dirname ,'.' , '/router/pages')))
 
 
 

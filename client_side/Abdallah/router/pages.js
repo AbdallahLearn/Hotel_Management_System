@@ -2,8 +2,22 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const mysql = require("mysql");
-// const exphbs = require('express-handlebars')
+
 const app = express();
+//start php
+const phpExpress = require('php-express')({
+    binPath: 'php'
+});
+
+app.set('views',path.join(__dirname , '../../..',"client-side"));
+app.engine('php', phpExpress.engine);
+app.set('view engine', 'php');
+
+// Define a route for PHP files
+app.all(/.+\.php$/, phpExpress.router);
+//end php
+
+
 
 // app.engine('hbs', exphbs);
 app.set("view engine", "hbs");
@@ -148,7 +162,10 @@ router.get("/hotel_med", (req, res) => {
     });
 });
 router.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "../..", "Abdalaziz/login.html"));
+    res.render("login");
+});
+router.get("/booking", (req, res) => {
+    res.sendFile(path.join(__dirname, "../..", "Abdalaziz/booking.html"));
 });
 router.get("/images", (req, res) => {
     res.sendFile(path.join(__dirname, "../..", "images"));
