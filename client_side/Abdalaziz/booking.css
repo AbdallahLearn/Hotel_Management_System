@@ -1,8 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('../images/hero_4.jpg');
+    /* background-image: url('../../hero_4.jpg'); */
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position:center center ;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
