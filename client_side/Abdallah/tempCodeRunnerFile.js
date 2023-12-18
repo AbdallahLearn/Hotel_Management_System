@@ -1,2 +1,1 @@
-const mysql = require("mysql");
-const app = express();
+3000

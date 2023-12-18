@@ -1,8 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('../images/hero_4.jpg');
+    /* background-image: url('../../hero_4.jpg'); */
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position:center center ;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -87,11 +87,15 @@ button {
     cursor: pointer;
 }
 
-footer {
-    background-color: #236b8e;
-    color: white;
-    padding: 50px;
+footer{
+    background-color:#236b8e;
+    color:white;
+    padding:50px;
     margin-top: 200px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .messageContainer {
