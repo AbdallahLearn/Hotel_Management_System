@@ -17,9 +17,8 @@ $dbname = "aaam"; // Replace with your actual database name
         $booking_id = random_int(10000, 99999);
 
         // Retrieve form data
-        $city = $_POST['city'];
-        $check_in = $_POST['check_in'];
-        $check_out = $_POST['check_out'];
+        $check_in = $_POST['check_out'];
+        $check_out = $_POST['check_in'];
         $num_adults = $_POST['num_adults'];
         $num_children = $_POST['num_children'];
         

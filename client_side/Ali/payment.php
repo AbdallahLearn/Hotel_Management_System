@@ -106,7 +106,7 @@ if (isset($_POST['submit'])){
             </div>
 
             <div class="col-md-6">
-              <label for="cc-number" class="form-label">Credit card number</label>
+              <label for="cc-number" class="form-label">Credit card number</label >
               <input type="text" class="form-control" id="cc-number" name="cc-number" placeholder="">
               <small class="text-muted" id="ErMsg"><?php echo $errors['cc_number']?></small>
             </div>
