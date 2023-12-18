@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
 }
+
 .header {
     overflow: hidden;
     background-color: #d7f0f4;
@@ -46,6 +47,16 @@ body {
     
 }
 
+.nav{
+    padding-top: 50px;
+    padding-left: 120px;
+} 
+
+.nav a {
+    padding-right: 20px;
+    text-decoration: none;
+    color:orange;
+}
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
@@ -76,4 +87,23 @@ button {
 button a {
     color: #fff;
     text-decoration: none;
+}
+
+.messageContainer{
+    margin:150px;
+}
+
+#ErMsg {
+    color: red;
+}
+
+footer{
+    background-color:#236b8e;
+    color:white;
+    padding:50px;
+    margin-top: 200px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

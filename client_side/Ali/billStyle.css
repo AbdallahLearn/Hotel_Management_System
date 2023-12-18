@@ -60,6 +60,16 @@ body {
     }
 }
 
+.nav{
+    padding-top: 50px;
+    padding-left: 120px;
+} 
+
+.nav a {
+    padding-right: 20px;
+    text-decoration: none;
+    color:orange;
+}
 #box{
     border-radius: 4px;
 }
@@ -130,5 +140,17 @@ button {
 button a {
     color: #fff;
     text-decoration: none;
+}
+
+
+footer{
+    background-color:#236b8e;
+    color:white;
+    padding:50px;
+    margin-top: 200px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
